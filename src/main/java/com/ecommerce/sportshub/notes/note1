@@ -300,7 +300,86 @@ Here we use Optional for User. findByEmail method and pass email as a string in 
 
 
 =========================
+Exceptions and Custom Mappings
+--
 
+Lets create exception handling
+
+NotFoundException.java
+This is an class which extends RuntimeException
+Inside it create a constructor named NotFoundException and its going to take in a string of our message.
+and inside super pass message.
+
+
+InvalidCredentialsException.java
+This is an class which extends RuntimeException
+Inside it create a constructor named InvalidCredentialsException which takes in a message, and which is what we are going to be passing in.
+and I am going to have a super of the message.
+
+
+GlobalExceptionHandler.java
+@ControllerAdvice - so what this does is this is going to intercept any error that has been thrown in our application.
+So whatever we have error being thrown is going to be intercepted by our global exception handler. and its going to return that error.
+
+First return ResponseEntity of response. we already have response which we are using here. so lets use that to return a response. handleAllException is going to take in a exception and going to take in a web request.
+response going to build my response object.
+
+Here we are using NotFound and InvalidCredentialsException
+
+3 methods in Global : handleALlException, handleNotFoundException, handleInvalidCredentialsException.
+
+So if you are trying to authenticate and your credentials are invalid we are going to be using InvalidCredentialException method.
+
+-----X----X-----X-----
+
+Now we are going to proceed to write our mapping.
+
+Note:
+in earlier we have entity, dto. and we dont return entity directly. we instead convert those entity to DTO.
+For eg: If I register a user and If I want to get a user detail from the database, I am going to have a user entity and going to map this to a user dto.
+and in user dto we have fields and in entity we have these fields and we have the password. and most times we will not want to add a password to the data
+to return.
+So we have to map it so we can select the fields we need and get rid of the fields we dont need.
+To do that I am going to be making use of a custom mapping class.
+
+
+EntityDtoMapper.java
+@Component - Annotate class with Component as we are going to be using it in other place.
+
+//Create a method to map the User.
+over here to map a user entity to a user DTO.
+Id, PhoneNumber, Email, role, Name.  mapUserToDtoBasic
+
+//Map Address to AddressDto.
+Id, City, Street, State, Country, ZipCode. mapAddressToDtoBasic
+
+//Method to map Category to the CategoryDto
+Id, Name.   mapCategoryToDtoBasic
+
+//Method to convert an Item to an OrderItemDto.
+Id, Quantity, Price, name, CreatedAt.   mapOrderItemToDtoBasic
+
+//Map product to ProductDto
+Id, Name, Description, Price, ImageUrl.   mapProductToDtoBasic
+
+//Map user to UserDto
+Address.   mapUserToDtoPlusAddress
+
+//Map order item to OrderItemDto
+OrderItem, Product.   mapOrderItemToDtoPlusProduct
+using this you can get the order item plus the product only without the user who ordered the product.'
+
+//Map OrderItem to Dto plus product and user
+OrderItem, Product, User.    mapOrderItemToDtoPlusProduct
+using this method you can get an order item plus product and the user.
+
+//Map a user to get the address and the order history of that user.
+User, Address, Order History.   mapUserToDtoPlusAddressAndOrderHistory
+first we are mapping a user plus the address and we are seeing if this user have an order. if its not empty then we are just mapping it to assign this .setOrderItemList. and we are saying the user.getOrderItemList of order stream it map it
+collect the item and the products and the convert it to a list so we can add it to the user.getOrderItemList and return the user.
+So this is going to help get a user the address and the order history of that user.
+
+=========================
 
 
 
