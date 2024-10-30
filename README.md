@@ -1,3 +1,1 @@
-AwsS3 Bucket Configuration
-
-application.properties configuration
+Product & order Service
