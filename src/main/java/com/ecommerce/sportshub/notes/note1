@@ -381,7 +381,80 @@ So this is going to help get a user the address and the order history of that us
 
 =========================
 
+Security Section
+-
 
+Security (jwt auth filter, jwt token,, security filter cors)
+
+Note:
+We can use the user data security implementation as wont be able to use this directly.
+We have the security dependency.
+Integrate with what entity has.
+
+
+AuthUser.java
+implement class with UserDetails and then just implement methods.
+getAuthorize, getPassword, getUsername(email), isAccountNonExpired, isAccountNonLocked, isCredentialsNonExpired, isEnabled.
+
+
+CustomUserDetailsService.java
+@RequiredArgsConstructor : Instead of Autowired used this to inject my dependency.
+Here we are going to implement the UserDetailService from the spring security I am going to implement the methods which is to load by username.
+inject userRepo.
+user obj is going to have userRepo and then use findByEmail which is defined in UserRepo and I am going to pass username inside it. As we saw earlier our username is going to be our email.
+An this email is going to be the unique identifier of the user terms.
+
+Note:
+JWT Utils Service is going to be used to generate and validate a token.
+
+JwtUtils.java
+set expiration time for our token. 6 months time.
+secreteJwtString is defined in application.properties.
+
+In application.properties define secreteJwtString (32 characters long)
+initialize secrete key by using @PostConstruct.
+What @PostConstruct does Whenever a bean obj is created it will run this code (init) and we are assign a value to this key
+
+//Now write a method to generate a token.
+and it is going to take an user and we are going to be generating a token for that user.
+
+Jwts is from the jsonwebtoken dependency
+.signWith(key) :
+is the algorithm over here which is this our secret string  where which we are using to create this key algorithm here. so thats going to be our signin key.
+
+Now lets write method to validate our token.
+This is going to be used to extract our username from a token in order to validate to verify a user.
+create a method call extractClaims and pass token, Claims in it. Claims is coming from jsonwebtoken.
+
+//Now write implementation to check token is valid. inside this pass token which i want to validate. then UserDetails as well.
+
+//Now we have a method to check token is expired or not.
+
+Note:
+JWT Auth Filter. This is going to be the entry point for our application. And its going to filter any req thats coming in.
+
+
+JwtAuthFilter.java
+extends with OncePerRequestFilter
+implement method which is doFilterInternal
+Inject jwtUtils and customUserDetailsService
+
+First of all extract token from our request.
+getTokenFromRequest method : whenever a user makes a call to our endpoint and it passes in an authorization over here in postman.bearer token.
+so we are going to accept this token and we are going to validate it to make sure that the token is coming from us.
+I am going to fetch the token from the header which is going to be request.getHeader() and the token is going to be saved at authorization.
+Eg: Postman - Authorization - Bearer Token - token - Headers
+
+
+SecurityConfig.java
+Inject JwtAuthFilter
+JwtAuthFilter will run before our security config. so whatever the results it gets is going to pass it over here to our SecurityConfig which is going to be the final security check.
+
+
+CorsConfig.java
+access/ deny permission of application.
+which method you would like to access specify in .allowedMethods
+As we want to access everything .. so specify .allowedOrigins("*")
 
 
 
