@@ -1,0 +1,29 @@
+
+
+AWS S3 Bucket Configuration:
+---
+
+collecting the image of the product and saving it in a cloud storage.
+
+we are going to be saving the link to that image on our
+database in line with details of the product.
+
+we are going to use AWS S3 Bucket ..
+
+-----
+saving images of the product on s3 bucket with the help of access key
+aws console
+search iam and click on in in left side go to users and create a user and attach a policy and search s3 click AmazonS3FullAccess and click on Next and create user. And in next click on the user and create access key click on others and click on next and type in description and click on create.
+copy access key and configure in application.properties.
+
+and then go to aws console search S3 and create a bucket. untick block all public access. and create a bucket. click on bucket and go to properties and go to policy and in bucket policy write a script to access images which is stored in bucket.
+copy paste bucket script and in Resource replace with Bucket ARN and save changes. and again go to bucket and upload image.
+click on image and copy link and paste it in chrome. so we can access image in chrome.
+
+
+
+Note:
+--
+First check whether secreteJwtString is defined in application.properties.
+then configure aws.s3.access and aws.s3.secrete in application.properties.
+
