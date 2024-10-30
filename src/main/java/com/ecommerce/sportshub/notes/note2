@@ -1,0 +1,41 @@
+
+After AwsS3
+
+Product & order Service
+----
+
+ProductService.java
+method to create a product, update a product, delete a product, get a product by Id, get all products, get product by category,
+search product.
+
+
+ProductServiceImpl.java
+It implements ProductService interface which contain all methods. and we are using that methods in implementation.
+
+
+
+Now write service to create and manage orders
+
+OrderItemService.java
+method to place order, update order item status, filter order items,
+
+
+OrderItemServiceImpl.java
+implements OrderItemService interface it contains methods and that methods we are going to be using in impl.
+
+inject orderRepo, orderItemRepo, productRepo, userService, entityDtoMapper.
+
+Note:
+User can make an order with one item or with multiple items.
+An Order contains an order items and an amount. go to OrderRequest dto.
+
+so to place an order we are going to first of all go over the order request, loop over all the order items and get the
+products from the productId, package it together and make and save the data on our backend.
+
+So before we do that, let me just make sure that a user is the one placing an order.
+go to Order entity .
+getting the actual product that the user is ordering.
+
+the total price is coming from order request.
+
+
