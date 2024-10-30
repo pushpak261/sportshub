@@ -456,6 +456,108 @@ access/ deny permission of application.
 which method you would like to access specify in .allowedMethods
 As we want to access everything .. so specify .allowedOrigins("*")
 
+-----X----X-----X-----
+
+
+Specification, Users, Address & Category Service
+
+A Specification is used to make custom query in a more flexible way.
+
+In Address repo i dont want specification to filter data on this repo.
+But I want specification for OrderItem.
+
+
+OrderItemSpecification.java
+I am going to write 3 methods.
+one is going to get order item by status. The order is going to feed the order items by start date and end date.
+and another method to get order item by Id,
+you can also decide to go the traditional way of just without using specification.
+
+With this class we can decide to pass in a status, a start date, end date and an item ID at the same time.
+we are going to fetch the data that have a status, start date, end date, and item ID. we can also decide to pass one of this value.
+so instead of having a different query method where you have to set the status differently, where you have to search by start date and end date differently or you have to search by item ID differently.
+with this one class just pass all this data and its going to check if this is null. its going to ignore this if this is null. and like that if you have value its going to search and filter the data that meets this criteria.
+so thats what specification is all about.
+
+
+
+Note:
+Now we are going to have a method to add a user to log in, to register a user to get our users.
+Interface
+
+
+UserService.java
+Here I am going to have methods to register a user.
+So its going to return our generic response I am going to call it register user.
+and its going to take in a user dto i just called this registrationRequest.
+I am also going to have another method to login a user its going to take in loginRequest.
+I am going to have another method to get all users.
+and many more methods.
+
+getLoginUser -> for this method whenever a user is logged in the authentication of that user and the user details are going to be available within the context instance. so we can use this to get the current logged in user.
+These are all methods now we write implementation for this.
+
+
+UserServiceImpl.java
+This is the class which implements UserService interface.
+implements all the methods.
+DI : userRepo, passwordEncoder, jwtUtil
+
+Whenever the user is logged in we have to generate a token for that user.
+I am just going to have my entity DTO mapper which we are going to be using to create to map.
+
+If there is no role in registrationRequest by default, we are going to be setting the default role to be User.
+If there is a role and the role name is admin we are going to set the role to be admin.
+User is coming from entity.
+
+savedUser will return user for us.
+Now i am just going to map the user item which is going to be our userDto.
+So lets get the basic information of the user and lets return the response.
+
+So our registration implementation is completed.
+
+Now i am going with LoginImpl
+first get the user object.
+we are trying to log in a user. we just want to check if the email is present at first.
+If the email is actually present and we are getting the user information then let just check if the password is correct.
+
+getAllUsers :
+This is going to be only accessible by admin.and we are going to make our modification in our controller.
+
+getLoginUser :
+Here we are going to use authentication from spring security.
+
+getUserInfoAndOrderHistory :
+
+User service is completed.
+
+
+AddressService.java
+It is an interface and having a method to save and update an address.
+it takes AddressDto
+
+
+AddressServiceImpl.java
+it should be implement AddressService which is interface
+inject addressRepo and userService here.
+implement the methods which are present in interface.
+We want to get the current information of the logged in user.
+We want a user to be able to update his address only.
+For the address I want to collect the address of the current logged in user.
+User updated address or not . if condition.
+if the user does not have an address than the address entity will be created if user has an address then proceed to update an address.
+
+street, city, state, zipcode, country.
+
+
+CategoryService.java
+add category, update a category, get category and delete category.
+let create crud operations for that
+
+
+CategoryServiceImpl.java
+It should be implement CategoryService interface.
+inject DI categoryRepo, entityDtoMapper
 
 
 
