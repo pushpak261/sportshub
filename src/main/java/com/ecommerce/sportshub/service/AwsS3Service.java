@@ -32,7 +32,7 @@ public class AwsS3Service {
     public String saveImageToS3(MultipartFile photo){
         try {
             String s3FileName = photo.getOriginalFilename();
-            //create aes credentials using the access and secrete key
+            //create aws credentials using the access and secrete key
             BasicAWSCredentials awsCredentials = new BasicAWSCredentials(awsS3AccessKey, getAwsS3SecretKey);
 
             //create an s3 client with config credentials and region
