@@ -1,0 +1,104 @@
+
+Install Node jS from chrome
+
+Now build Frontend
+
+go to directory
+
+npx create-react-app client
+
+Now install required dependencies
+
+we are going to need axios for making http call.
+
+npm install axios
+npm install react-router-dom
+npm start
+
+
+clean App.css, index.css
+
+in service folder we have api service class.
+in common folder we have common like navbar, footer.
+in pages folder we have login, logout, profile.
+context folder help us to manage our cart.
+
+create folders like component, service, style.
+inside component create admin, common, context, pages.
+
+We are using ApiService to make HTTP calls.
+
+
+ApiService.js   //javascript file
+Here I am bringing axios
+lets export our class default ApiService
+I am going to have my baseURL which is localhost:2424.
+Lets create a method getHeader for us to head over here for us to, you know, bundle onto our token and pass in.
+So for all endpoints that require authentication, we are going to be passing in our header which is going to be authenticated on the API.
+Lets get our token and store token in the local storage.
+whenever a user is logged in we are going to collect the token and store it in the local storage. So whenever that user tries to access endpoints that
+are protected, we are going to get the token & passing into the header to the endpoints.
+
+...
+take the token that was stored and then return an object of Authorization, For our Authorization our token is of bearer type and pass token in it and ContentType is optional.
+
+Auth & Users EndPoint (API)
+Here all methods are going to be static.
+registerUser is a method and we are passing registration object into it and get our response with the help of post req we are passing endpoints for register and also passing the registration as the body. and we are going to get the data which is actual response.
+
+now create a methods for a loginUser, getLoggedInUserInfo (not taking an obj, but passing a body which is header for token. due to endpoint protection)
+
+
+Product Endpoint (API)
+create a method to add a product.
+addProduct is a method and it is taking a formData as a object and and get our response with the help of post req we are passing endpoints for adding product and also passing the formData as the body. and inside it which is headers and set Content-Type to multipart.
+and we are going to get the data which is actual response.
+
+now create a method for updateProduct, getAllProduct (not taking obj and body)
+searchProducts, getAllProductsByCategoryId, getProductById, deleteProduct.
+
+
+Category Endpoint (API)
+create a method to create a category.
+createCategory is a method and it is taking a body as a object and get our response with the help of post req we are passing endpoints for creating a category and also passing the body as the body. and inside it which is headers for authentication.
+and we are going to get the data which is actual response.
+
+now create a methods for getAllCategory, getCategoryById, updateCategory, deleteCategory,
+
+
+Order Endpoint (API)
+create a method to create a order.
+createOrder is a method and it is taking a body as a object and get our response with the help of post req we are passing endpoints for creating a order and also passing the body as the body. and inside it which is headers for authentication. //like logged in user is the one who is creating an order.
+and returning the response as the data.
+
+now create a methods for getAllOrders, getOrderItemById, getAllOrderItemsByStatus, updateOrderItemStatus
+
+
+Address Endpoint (API)
+When a user logged in he should be able to save and update his address.
+
+create a method for saveAddress
+
+
+Authentication Checker Endpoint (API)
+
+create a method for logout
+when you when you click on logout we want to remove the token from user.
+if the user is logged in then we save the token.
+Token are used for verification.
+when you are logging out, we are removing token and we are also removing role.
+So Role and the token are going to be used to differentiate an admin from a normal user from an authenticated person.
+
+isAuthenticated method : is going to check if you have a token irrespective of whether you are an admin or you are a user.
+
+isAdmin : method to check if a person is a admin. This returns true if a role is a admin else false if role is not an admin.
+
+
+
+
+Note:
+In our application most of our endpoints are protected. So before you access them you have to pass in your authorization which is basically your Bearer.
+
+
+
+
