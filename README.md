@@ -1,1 +1,1 @@
-Controllers & Api's Testing
+Home Page, Product & Pagination Component
