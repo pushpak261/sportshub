@@ -70,7 +70,97 @@ npm install axios
 
 
 
+Home Page, Product, and Pagination Component
+---
 
+First we need to have a component that is going to hold the list of products.
+The Home Page is going to have 2 components one is going to hold the product list and another one
+is going to contain hold this lead to pagination.
+So we are going to first have our product list component which is going to be rendered on the home page and the pagination
+component.
+
+
+ProductList.jsx (Home Page)
+--
+product cards.
+
+Refer CartContext for understanding...
+List of products.
+
+The component is ProductList which is going to be accepting a props called products is going to be an array of products.
+So when we go to our homepage, and make http call is going to fetch all the products we are going to collect the products and pass it to the product list
+component which is going to display.So this is going to accept the products that we got from our endpoint.
+In homepage whenever a product is displayed we should be able to add a product to cart, and we should be able to add a product to cart, increment, decrement
+the number of products we have on the cart. And whenever we perform such operation it should also display in homepage.
+Here we are going to use cartContext to manage our cart.
+
+dispatch is going to be useCart custom hook.
+create a function to add product to the cart.
+create a function to increment, decrement, remove the product.
+Atlast return our template.
+here use the javascript to map the products that we are passing in, and we are going to output the product.
+if the product is added to the cart then we have to display the no. of products in the cart. If the product is not found in the cart
+then we just want to add the button to cart.
+
+Now I want to wrap entire product within a link. So when you click on it it takes you to the product details so you can see the details of the product.
+Now I am going to have a condition statement to display the button. So I already have here to check if the item is on a cart item here.
+If the product is not in the cart than display Add To Cart button.
+
+
+Now let's move to product list styling. productList.css
+
+
+
+Now create a Pagination component
+
+Pagination.jsx
+--
+1 2 3 4 5 6 7 8 >> 99
+
+I want to create a component that is going to show all the pages we are in.
+And when we click on the page, it should display the items on that page.
+Implementation of that component is going to be in Home Page. which is where we are calling the component.
+
+const Pagination is going to collect a currentPage that we are in. These are props that is going to be coming from the home page
+or the page where the component is going to be mounted.
+Then the totalPage to the pages that exist is going to be also coming in then onPageChange. So this is going to be a function that is going
+to be called when the page is changed. So those are going to be on the home page implementation. but we are passing the properties down here.
+First create an array of the page numbers. and use for loop.
+then return template.
+
+now write css for it.
+
+
+
+HomePage.jsx
+--
+
+hold parameter.
+create a product to get a product.SetProducts is going to be useState and its going to be an array of products.
+Now we are going to use useEffect to write our fetch product. and here we are going to keep an eye on our parameter, which is going to be location.search
+If we have a searchValue in, our parameter is going to trigger this effect.
+we can navigate like go to 1st, 2nd ...99 page.
+create a function to fetchProducts
+In our home page we are just checking if the user is trying to search a product and if it is we are storing the product as search item.
+If we are actually trying to make a search then lets make a http call to search for that product
+In our postman we we see getAllProducts. Our product is an array which is stored in a variable as product list.
+So when we make a call to our service and we want to get in our product, we are going to just use the product list variable
+here to get an array of a product. So we are basically storing that as our products here.
+If user is not trying to make a search lets just make a call to get all products. so we are basically get all products from our DB.
+Product is going to be the response of a product list.
+Total no .of Pages required will be total products that are returned from the database divide by the total number of items we want.
+
+now call method fetchProducts.
+
+Atlast return our template
+in div bring our components like ProductList, Pagination.
+then export Home.
+
+Now lets have styling for Home Page. home.css
+
+Now Configure components routing in App.jss
+
+In Home Page Products are coming from ProductList.
 
 
 
