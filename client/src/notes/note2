@@ -1,0 +1,78 @@
+
+NavBar and Footer
+--
+
+Navbar.jsx, navbar.css, ApiService is used everywhere.
+
+
+
+Navbar.jsx
+---
+Logo       Search  Home  Categories  Login  Account  Cart
+
+first create a variable to hold the search inputs to hold the value you want to search for.
+So every user type in a search item to search. This is going to store the item by using a useState to store it.
+Bring navigate to navigate into different pages.
+Check if it is a user or an admin. If authenticated then you want to show Account if not then show Login If you are a Admin then show an Admin Profile here.
+Also check if you are a normal user.
+Now create a variable a function named handleSearchChange to set the user search value. So when you type in a value you want to search, you just want to use this to collect
+the value and then store it on our search value variable.
+I am also going to have a method to handle the submit when you click on search.
+
+In home page implementation we are going to see how to collect the search value and used to query the database to return those items.
+Lets have a method to logout in case a user wants to logout and also display the logout button if a user is not logged in.
+If a user is logged in I want to display a logged out button and If the user is not logged in then I will have to display a login button.
+
+handleSearchChange method : onchange if there is a change, if a user start typing is going to trigger the Onchange and when that happen we just want to collect the value and save it.
+And those search changes are going to collect the value and save it in this searchValue variable. which is going to be displayed again to the user.
+
+Now write implementation of the remaining of list items.
+
+
+Home Categories, My Account, Admin, Login, Logout, Cart
+Wrap this in condition like if you are authenticated then show your account. while if you are an admin than show admin page,
+if you are not authenticated then show a Login, but if you are authenticated dont show a login, for the other one if you
+are authenticated then show a log out.
+at last export our item.
+
+Now write styling for our navbar.
+
+
+
+Footer.jsx
+---
+return template
+About Us   Contact Us   Terms & Conditions   Privacy Policy   FAQs
+
+&copy; 2024 Sports Club. All right reserved.
+
+at last export our item.
+Now write styling for this in footer.css
+
+
+Clear all content in App.js.
+
+Now configure in App.js
+import all required components in this.
+in return statement clear all contents.
+lets wrap everything in browser router.
+I am going to wrap everything inside a CartProvider
+inside this we have a navbar and footer and all routes (endpoints) are wrapped inside Routes. like
+home, login, logout routes.
+
+logo is in public folder.
+
+
+Dependencies:
+--
+npm install react-router-dom
+npm install axios
+
+
+
+
+
+
+
+
+
