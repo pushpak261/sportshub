@@ -1,1 +1,1 @@
-Controllers & Api's Testing
+Product Details Page, Category Page, Category Product Page
