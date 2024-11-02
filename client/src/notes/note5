@@ -1,0 +1,101 @@
+
+Admin Dashboard and Management
+--
+
+Admin Page and Category Management
+---
+
+Welcome Admin
+
+Manage Categories
+Manage Products
+Manage Orders
+
+An admin can manage a category, can manage a product and manage all orders.
+
+So in categories page Admin can add, edit, delete, categories. Same for Products and
+for Orders.
+
+Orders
+Filter By Status                                       Search By Status
+
+Order Id    Customer    Status    Price    Date Ordered    Actions
+
+
+
+AdminPage.jsx
+---
+
+3 Buttons
+--
+Manage Categories
+Manage Products
+Manage Orders
+
+After that configure in App.js. We have AdminRoute bcz we have only admin to access that endpoint eg: AdminPage
+and also add styling for that.
+
+Now write impl for manage category page.
+
+
+Categories
+Add Category
+
+Cricket             Edit  Delete
+FootBall            Edit  Delete
+
+
+AdminCategoryPage.jsx
+--
+
+create arrow function and we are going to first of all get our categories from our API.
+So useEffect whenever a user comes and admin comes to our site for the first time. lets just fetch our categories.
+api call to get all categories.
+
+When you click on the Edit we want to navigate to a page where you can edit the details of this category just to change the name. handleEdit
+handleEdit lets  have a method to delete the category also. handleDelete
+now lets return our template
+write styling for this.
+At last configure App.js
+
+
+
+Write a method to be able to Add and Edit the Category
+
+AdminAddCategory.jsx
+---
+
+create a method called AddCategory ans set a category name which is useState.
+lets have a msg to display whether the category was added successfully.
+and lets have navigate to leave when have successfully added a category.
+lets have a method to submit called handleSubmit.
+and at last return template.
+lets have styling for it.
+and configure in App.js
+
+
+EditCategory.jsx
+---
+
+create a method called fetchCategory.
+lets create handleSubmit.at last return our template.
+configure App.js
+
+Admin -> Manage Categories -> Edit  Delete
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
