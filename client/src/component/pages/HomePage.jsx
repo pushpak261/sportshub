@@ -3,10 +3,10 @@ import { useLocation } from "react-router-dom";
 import ProductList from "../common/ProductList";
 import Pagination from "../common/Pagination";
 import ApiService from "../../service/ApiService";
-import '../../style/home.css';
+import '../../style/homePage.css';
 
 
-const Home = () => {
+const HomePage = () => {
     const location = useLocation();
     const [products, setProducts] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
@@ -62,4 +62,4 @@ const Home = () => {
 
 }
 
-export default Home;
+export default HomePage;

@@ -8,7 +8,7 @@ Navbar.jsx, navbar.css, ApiService is used everywhere.
 
 Navbar.jsx
 ---
-Logo       Search  Home  Categories  Login  Account  Cart
+Logo       Search  HomePage  Categories  Login  Account  Cart
 
 first create a variable to hold the search inputs to hold the value you want to search for.
 So every user type in a search item to search. This is going to store the item by using a useState to store it.
@@ -29,7 +29,7 @@ And those search changes are going to collect the value and save it in this sear
 Now write implementation of the remaining of list items.
 
 
-Home Categories, My Account, Admin, Login, Logout, Cart
+HomePage Categories, My Account, Admin, Login, Logout, Cart
 Wrap this in condition like if you are authenticated then show your account. while if you are an admin than show admin page,
 if you are not authenticated then show a Login, but if you are authenticated dont show a login, for the other one if you
 are authenticated then show a log out.
@@ -70,17 +70,17 @@ npm install axios
 
 
 
-Home Page, Product, and Pagination Component
+HomePage Page, Product, and Pagination Component
 ---
 
 First we need to have a component that is going to hold the list of products.
-The Home Page is going to have 2 components one is going to hold the product list and another one
+The HomePage Page is going to have 2 components one is going to hold the product list and another one
 is going to contain hold this lead to pagination.
 So we are going to first have our product list component which is going to be rendered on the home page and the pagination
 component.
 
 
-ProductList.jsx (Home Page)
+ProductList.jsx (HomePage Page)
 --
 product cards.
 
@@ -119,7 +119,7 @@ Pagination.jsx
 
 I want to create a component that is going to show all the pages we are in.
 And when we click on the page, it should display the items on that page.
-Implementation of that component is going to be in Home Page. which is where we are calling the component.
+Implementation of that component is going to be in HomePage Page. which is where we are calling the component.
 
 const Pagination is going to collect a currentPage that we are in. These are props that is going to be coming from the home page
 or the page where the component is going to be mounted.
@@ -154,13 +154,13 @@ now call method fetchProducts.
 
 Atlast return our template
 in div bring our components like ProductList, Pagination.
-then export Home.
+then export HomePage.
 
-Now lets have styling for Home Page. home.css
+Now lets have styling for HomePage Page. home.css
 
 Now Configure components routing in App.jss
 
-In Home Page Products are coming from ProductList.
+In HomePage Page Products are coming from ProductList.
 
 
 
