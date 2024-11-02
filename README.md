@@ -1,1 +1,1 @@
-Controllers & Api's Testing
+Cart Page, Registration & Login Page
