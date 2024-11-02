@@ -1,0 +1,90 @@
+
+
+I had updated footer code.
+
+Product Details Page, Category Page, Category Product Page
+---
+
+ProductDetailsPage.jsx (Home Page)
+--
+when we click product on HomePage then ProductDetailsPage will be open.
+
+Eg:
+Name
+Description
+Price
+AddToCart
+Increment, Decrement
+
+
+useParams is used to get Id from URL. custom hook is useCart.
+
+First of all I am going to get my productId from a parameter which is useParams.
+and also get my cart and dispatch from our useCart.
+I am going to have my variable to save the product and its going to be saved using setProduct. When
+you make API call we are going to use to store our product details in the product. So this is going to be useState and by default it should be null.
+
+And now just create useEffect and should keep an eye on my productId. so below I am going to create a method to fetch my product.
+Have all methods which is in ProductList.
+
+cartItem is a method it will check item is existing.
+it will return a template
+name, description, price, + -, Add To Cart
+
+Now write a styling for this. and after that provide routing in App.js.
+
+
+
+CategoryListPage.jsx
+---
+
+Eg:
+            Categories
+
+              Cricket
+              FootBall
+              Shoes
+              Others
+
+
+Lets create a component called CategoryListPage
+I am going to have a method to see all our categories when we get from our DB. I am just going to get
+our categories and set it by using useState.
+and also I am going to have an error set it to null by using useState.
+
+when you come on this page trigger a call to our DB to get all the categories.
+create a const fetchCategories. and I am going to have try, catch block. And within my try I'm just going to make a
+http call. and getAllCategory and then set category.
+
+Now have a method to handle category click. If you decide to click on this category like Cricket then it should take you to the category product page.
+where you display all products which are particular to this category.
+At last return template
+
+categoryId
+button -> category name
+
+now write styling for this.
+
+After that provide routing in App.js.
+
+
+Now when you click on any of the category it should be able to display all the products which are within this category.
+
+
+
+CategoryProductsPage.jsx
+--
+
+First of all I am going to get my categoryId from my useParam
+copy some code from home page and paste it.
+
+
+In useEffect I am going to create a method first of all keep an eye on our categoryId.
+Lets have an array to check our categoryId for our categoryId is changed and our currentPage is changed. Then we trigger
+this useEffect. so below that I am just going to have my method to fetch products.
+lets wrap in try catch block whenever we have error than set error like unable to fetch products by category Id in catch block.
+
+In useEffect call fetchProducts method to fetch Products .
+
+In App.js provide routing for this
+
