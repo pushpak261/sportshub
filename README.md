@@ -2,6 +2,6 @@ PaymentGateWay Integration Testing Purpose
 ---------
 Pay Pal
 
-Modify cart Page
+Modify Cart Page
 
 Order Confirmation Page
