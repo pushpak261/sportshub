@@ -1,0 +1,40 @@
+
+
+
+Integrate paypal :
+---
+
+npm install @paypal/react-paypal-js
+
+
+I have modified Cart Page and Address Page.
+
+And integrate Paypal in cart page
+
+and OrderConfirmationPage also..'
+
+PayPalButton.jsx
+OrderConfirmationPage.jsx
+
+
+
+Go to the PayPal Developer website.
+Once logged in, navigate to Dashboard and create a new REST API app under the My Apps & Credentials section. This will provide you with a Client ID.
+You can also use by default ClientId and secret key.
+
+https://developer.paypal.com/dashboard/applications/sandbox
+
+Apps And Credentials.
+
+and use this client Id and secret key in PayPalButton.jsx.
+
+
+Configure in App.js
+
+
+---
+
+
+
+
+
