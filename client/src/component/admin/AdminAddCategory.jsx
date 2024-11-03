@@ -3,7 +3,7 @@ import ApiService from "../../service/ApiService";
 import { useNavigate } from "react-router-dom";
 import '../../style/adminAddCategory.css'
 
-const AddCategory = () => {
+const AdminAddCategory = () => {
     const [name, setName] = useState('');
     const [message, setMessage] = useState('');
     const navigate = useNavigate();
@@ -40,4 +40,4 @@ const AddCategory = () => {
     )
 }
 
-export default AddCategory;
+export default AdminAddCategory;

@@ -85,6 +85,104 @@ Admin -> Manage Categories -> Edit  Delete
 
 
 
+Admin Products Management
+---
+
+We hava already Manage Category. Now create similar implementation to manage a product.
+But the difference is that we are going to use pagination bcz for products, we can have thousands of products on our
+system, and we will not be able to display thousands of products at a page.
+So we are adding pagination so you can move from one page to another.
+
+
+
+AdminProductPage.jsx
+---
+
+create a function AdminProductPage and this is going to be an arrow function component. since we are going to be having
+pagination and we are going to be getting our products from DB.
+fetchProducts method we are getting our product first and we are just saving the product at product list bcz when you get your response you are going to contain
+lot of stuff. So you have to get the product list array out of it, which we are saving as product list.
+we want to know total products that we are getting from our API, and total no. of pages.
+Lets trigger useEffect so when this component is mounted lets just call the fetchProducts and lets just watch out for a change in our current products page.
+So whenever our page is changes we are going to return this fetchProduct basically which is going to be setProducts by using the next 10 products on our page.
+So lets have a method to handle an edit and delete as we have in Categories.
+At last return template.
+Write Styling for this.
+Now provide routing in App.js
+
+
+Products
+Add Product
+
+Cricket                     Edit   Delete
+FootBall                    Edit   Delete
+Shoes                       Edit   Delete
+Others                      Edit   Delete
+
+
+1 2 3
+
+
+Lets have Implementation to add a product to edit and delete a product.
+
+If we are trying to delete a product which is ordered then it could not be delete bcz product has been ordered. But we can delete product that are not currently ordered.
+
+
+AdminAddProductPage.jsx
+---
+
+create AddProductPage arrow function and we are going to have some states bcz to add a product we will be needing
+categoryId, image, name, description, price. create a state to hold those data from input.
+I want to get a list of our categories so we can select which category the product will belong to that we want to add.
+When admin comes to add product page, First of all I want to fetch to get all the list of categories. So display that
+for the user to choose from. So we use UseEffect.
+we are going to have a method to capture our image bcz we need to add the image to the product we want to upload. so lets call this as handleImage.
+So lets have a method handleSubmit so when you have filled the product form you want to submit.
+After we are successfully added the product then go back to the product page.
+At last return template.
+
+categories.map will be taking categories as a list of categories we are picking each of them as category. And we are displaying the name of the category as an option.
+and when you click on that when you select that option we are going to get the categoryId and we are going to set the value of here as categoryId and that value is what we will be
+passing in as the form data, as the categoryId. So we can save this product on this category.
+
+setName method to get the name.
+
+make http call and return products.
+
+Now configure in App.js
+
+
+
+Lets add implementation to edit this Product.
+
+
+
+AdminEditProductPage.jsx
+---
+method EditProductPage, handleImageChange, handleSubmit.
+
+when we select an image we want to also display the image for the user to see the image that was selected.
+At last return Template.
+submit is going to trigger handleSubmit.
+Now configure in App.js
+
+
+Eg:
+--
+
+Edit Product
+
+choose file
+
+Select Category
+Product Name
+Description
+Price
+            Update
+
+
+
+
 
 
 
