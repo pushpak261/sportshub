@@ -183,6 +183,92 @@ Price
 
 
 
+Admin Orders Management
+---
+
+we are going to proceed to write implementation to manage orders.
+To Search you need to be making an API call to get fresh data.
+
+Orders
+Filter By Status:                   Search By Status:
+
+Order ID   Customer   Status   Price   Date Ordered   Actions
+
+
+
+1 2 3
+
+
+
+AdminOrderPage.jsx
+---
+
+You have an order status in your table and have an API that is going to return PENDING, CONFIRMED,....
+We are going to have useEffect whenever this component is mounted we just want to get all the orders. and lets keep a watch on our searchStatus on our currentPage.
+lets have a method called fetchOrders. make api call to get all orders.
+orderItemList is the variable that holds all order item list.
+response.orderItemList will give you all orders
+lets have a handleFilterChange.
+handleSearchStatusChange method is going to collect our value that we want to search for and then pass it along search order details.
+lets have a method to navigate when you click on Details then it will navigate to details page. where you
+can change the status and view the details and the user information who ordered the item, the address where the item will be delivered to the payment details.
+handleOrderDetails method.
+
+and at last return template.
+provide styling for it.
+and configure in App.js.
+
+
+Lets have the implementation to get order details.
+If I click on Details then it should be navigate to OrderDetailsPage. where we should get the full information about this order.
+I am going to get the user who booked it, the user address, where the order will be shipped to, and actually be able to change or update the status of this order.
+
+
+
+AdminOrderDetailsPage.jsx
+---
+create a arrow function called AdminOrderDetailsPage
+
+lets called useState whenever this component is mounted or whenever or whenever there is a change in our order ID which is our item ID,
+lets run this function called fetchOrderDetails inside this I am going to pass itemId.
+In try block I am going to make http call to get the order item by ID.
+orderItemList is going to be holding the list of orders. That's going to be holding the information of order which is going to be list format.
+Now create a handleStatusChange method to be able to select the order status it is going to take orderItemId, newStatus.
+I am going to be set the status, get the order Id and change the status which is going to be orderItemId.
+in this we are getting all our selected status and we are seeing the one that has the order item just change the status.
+Now create a handleSubmitStatus method to save it.
+At last return a template.
+
+Order Information : order item id, quantity, total price, order status, date ordered
+
+User Information : name, email, phone no, role
+
+Delivery Address : country, state, city, street, zipcode
+
+Product Information : name, description, price
+
+Admin should be able to change the status of this item.
+Change Status
+
+Now write styling for this.
+and Configure in App.js.
+
+
+------------THE END----------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
