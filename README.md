@@ -1,6 +1,6 @@
 Admin Product Management
 ---
 
-Admin Product Page, Add Product Pade, Edit Product Page.
+Admin Product Page, Add Product Page, Edit Product Page.
 
 
