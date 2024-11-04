@@ -36,5 +36,21 @@ Configure in App.js
 
 
 
+MapComponent.jsx
+---
+I had also used Map Component in Address Page to get the City Location. where I had used OpenCage API Key...
+and use this component directly in AddressPage.jsx.
+It track location based on city and zipcode.
+
+I had also made changes in AddressPage so that MapComponent matches with AddressPage. And also I had made change
+in App.js so when whe Add or edit Address than NavBar Component will be hidden.
+
+
+
+
+
+
+
+
 
 

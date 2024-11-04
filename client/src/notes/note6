@@ -1,0 +1,21 @@
+
+How to run github project
+----
+
+Create all missing files and folder in right directory and location.
+
+package.json missing
+public folder missing
+index.html missing
+App.js missing
+index.js missing
+
+client -> public folder
+public folder -> index.html
+src folder -> index.js, App.js
+
+npm install, npm start
+
+
+and keep logo in public folder
+

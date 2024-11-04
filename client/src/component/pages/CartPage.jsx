@@ -109,6 +109,8 @@
 
 
 /////////////////////////////////////////////
+//Working Fine
+
 // import React, { useState, useEffect } from "react";
 // import { useNavigate, useLocation } from "react-router-dom";
 // import ApiService from "../../service/ApiService";
@@ -187,18 +189,23 @@
 // export default CartPage;
 //
 
+
+
+
+//Latest
+
 import React, { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import ApiService from "../../service/ApiService";
 import { useCart } from "../context/CartContext";
-import PayPalButton from '../../component/future features/PayPalButton'; // Import your PayPalButton
+import PayPalButton from '../../component/future features/PayPalButton';
 import '../../style/cartPage.css';
 
 const CartPage = () => {
     const { cart, dispatch } = useCart();
     const [message, setMessage] = useState(null);
-    const [paymentMethod, setPaymentMethod] = useState('cod'); // Default to Cash on Delivery
-    const [addressSaved, setAddressSaved] = useState(false); // State to track if the address is saved
+    const [paymentMethod, setPaymentMethod] = useState('cod');
+    const [addressSaved, setAddressSaved] = useState(false);
     const navigate = useNavigate();
     const location = useLocation();
 
@@ -217,18 +224,18 @@ const CartPage = () => {
 
     const totalPrice = cart.reduce((total, item) => total + item.price * item.quantity, 0);
 
-    // Check if address was saved when component mounts
+
     useEffect(() => {
         const savedAddress = localStorage.getItem('address');
         if (savedAddress) {
-            setAddressSaved(true); // Set addressSaved to true if an address is saved in local storage
+            setAddressSaved(true);
         }
     }, []);
 
     const handleCheckout = async () => {
         const confirmPlaceOrder = window.confirm("Do you want to place the order?");
         if (!confirmPlaceOrder) {
-            return; // If the user cancels, exit the function
+            return;
         }
 
         const orderItems = cart.map(item => ({
@@ -239,7 +246,7 @@ const CartPage = () => {
         const orderRequest = {
             totalPrice,
             items: orderItems,
-            paymentMethod, // Use the selected payment method
+            paymentMethod,
         };
 
         try {
@@ -247,7 +254,7 @@ const CartPage = () => {
             setMessage(response.message);
             if (response.status === 200) {
                 dispatch({ type: 'CLEAR_CART' });
-                navigate("/order-confirmation"); // Navigate to an order confirmation page
+                navigate("/order-confirmation");
             }
         } catch (error) {
             setMessage(error.response?.data?.message || error.message || 'Failed to place an order');
