@@ -39,16 +39,17 @@ const AdminCategoryPage = () => {
 
     return(
         <div className="admin-category-page">
+
             <div className="admin-category-list">
                 <h2>Categories</h2>
-                <button onClick={()=> navigate('/admin/add-category')}>Add Category</button>
+                <button onClick={() => navigate('/admin/add-category')}>Add Category</button>
                 <ul>
                     {categories.map((category) => (
                         <li key={category.id}>
                             <span>{category.name}</span>
                             <div className="admin-bt">
-                                <button className="admin-btn-edit" onClick={()=> handleEdit(category.id)}>Edit</button>
-                                <button  onClick={()=> handleDelete(category.id)}>Delete</button>
+                                <button className="admin-btn-edit" onClick={() => handleEdit(category.id)}>Edit</button>
+                                <button onClick={() => handleDelete(category.id)}>Delete</button>
                             </div>
                         </li>
                     ))}

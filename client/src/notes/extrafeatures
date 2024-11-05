@@ -34,6 +34,7 @@ Configure in App.js
 
 ---
 
+npm install axios
 
 
 MapComponent.jsx
@@ -47,6 +48,42 @@ in App.js so when whe Add or edit Address than NavBar Component will be hidden.
 
 
 
+
+
+
+Attractive
+----
+Added Background Transparent Video to Admin Page.
+
+
+
+Deploy React App on AWS S3
+----
+
+npm run build
+
+In Amazon S3 create Bucket.
+
+Bucket name : sportsfrontend
+Un tick Block all public access
+Create bucket
+
+In Properties enable static website hosting and type index.html then save it.
+
+In permission edit Bucket Policy then generate policy.
+Then select S3 Bucket as a type of policy. And in Principal put *
+And In Actions select GetObject.
+And specify ARN Resource name which is Bucket ARN copy paste it from bucket policy.
+Then Generate Policy.
+Copy that Policy and paste into Bucket Policy
+Remember in Resource put /*
+Otherwise it will not work.
+Then save Changes
+
+Now Upload contents in Bucket
+Go to Build folder copy all contents drag and drop into Bucket.
+Then Upload it.
+After uploaded go to Properties and click on Static website hosting link now our website will be visible.
 
 
 

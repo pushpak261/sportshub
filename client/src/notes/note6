@@ -19,3 +19,22 @@ npm install, npm start
 
 and keep logo in public folder
 
+
+===============
+
+
+
+
+I had made some changes to make website Responsive.
+
+
+
+Responsive Website:
+---
+
+Making NavBar and Footer responsive by applying css and media queries.
+Making ProductList Responsive means Add To cart is removed and description is also responsive.
+Making Product Details Responsive for all devices.
+And at last making pagination responsive like if more pagination buttons so hide it and show ...
+
+

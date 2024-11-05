@@ -20,6 +20,7 @@
 
 
 /*Full Map Component Matches With Address Page*/
+
 .map-container {
     position: fixed;
     top: 0;
@@ -36,3 +37,5 @@
     height: 100%;
     border-radius: 0;
 }
+
+
