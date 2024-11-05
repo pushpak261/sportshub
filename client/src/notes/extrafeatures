@@ -57,6 +57,8 @@ Added Background Transparent Video to Admin Page.
 
 
 
+
+
 Deploy React App on AWS S3
 ----
 
@@ -87,6 +89,61 @@ After uploaded go to Properties and click on Static website hosting link now our
 
 
 
+
+
+
+
+Mission Failed:
+---
+
+Deploying Spring Boot BackEnd on AWS
+-----
+
+
+Update pom.xml file
+
+pom.xml
+---
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+
+
+Intellij Idea -> view -> Tool Window -> Maven -> LifeCycle -> Double Click Package
+Now it will create a jar file for us.
+
+
+
+AWS Configuration
+--
+Create Linux instance
+pem key
+
+
+
+windows Power Shell:
+---
+Open download location of that jar file in power shell.
+
+ssh -i "C:\Users\ECS\downloads\sportsbackendnew.pem" ec2-user@ec2-13-201-134-209.ap-south-1.compute.amazonaws.com
+
+cd /home/ec2-user/
+
+java -jar sportshub-0.0.1-SNAPSHOT.jar
+
+
+sudo amazon-linux-extras enable corretto21
+sudo yum install java-21-amazon-corretto -y
+
+sudo yum update -y
+
+
+sudo yum install -y https://dev.mysql.com/get/mysql57-community-release-el7-11.noarch.rpm
 
 
 

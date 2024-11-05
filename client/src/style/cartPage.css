@@ -76,8 +76,9 @@
 
 
 
-/**/
 
+
+/*Color modifying like light orange */
 
 .cart-page * {
     color: #444;
@@ -155,7 +156,7 @@
 }
 
 .checkout-button {
-    background-color: #f68b1e;
+    background-color: #f08c42;
     color: white;
     border: none;
     border-radius: 5px;

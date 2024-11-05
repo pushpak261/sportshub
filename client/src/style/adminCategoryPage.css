@@ -12,7 +12,9 @@
     margin-bottom: 20px;
 }
 .admin-category-list button{
-    background-color: #f68b1e;
+    /*background-color: #f68b1e;*/
+
+    background-color: #f08c42;
     color: #fff;
     font-size: 20px;
     border: none;
@@ -39,13 +41,16 @@
 }
 
 .admin-bt button{
-    background-color: tomato;
+    /*background-color: tomato;*/
+
+    background-color: #ff7f6a;
     color: #fff;
     border: 8px 16px;
     cursor: pointer;
     margin-left: 10px;
 }
 .admin-bt .admin-btn-edit{
-    background-color: #f68b1e;
+    background-color: #f08c42;
+
 }
 

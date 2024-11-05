@@ -13,7 +13,7 @@
     font-size: 18px;
     color: #fff;
     border: none;
-    background-color: #f68b1e;
+    background-color: #f08c42;
 }
 
 .product-btn-delete{
@@ -25,7 +25,7 @@
     font-size: 18px;
     color: #fff;
     border: none;
-    background-color: tomato;
+    background-color: #ff7f6a;
 
 }
 .admin-product-list button:hover{

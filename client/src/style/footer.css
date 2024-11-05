@@ -110,7 +110,6 @@
     font-size: 14px;
 }
 
-/* Responsive adjustments */
 @media (max-width: 768px) {
     .footer {
         padding: 10px 0;
