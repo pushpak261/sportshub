@@ -2,7 +2,7 @@ Changes Made :
 ----
 
 Map Component Should Fully aligned in Address Page.
-Address.jsx, App.js, 
+Address.jsx, App.js
 
 
 Responsive :
@@ -10,6 +10,6 @@ Responsive :
 
 Applying CSS in NavBar.jsx, Footer.jsx 
 ProductList, ProductDetails
-Pagination
-Removing AddToCart Button from ProductList
+Pagination.
+Removing AddToCart Button from ProductList.
 
