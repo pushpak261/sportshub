@@ -57,7 +57,7 @@ Added Background Transparent Video to Admin Page.
 
 
 
-
+================================================
 
 Deploy React App on AWS S3
 ----
@@ -91,7 +91,7 @@ After uploaded go to Properties and click on Static website hosting link now our
 
 
 
-
+=====================================
 
 Mission Failed:
 ---
@@ -145,6 +145,47 @@ sudo yum update -y
 
 sudo yum install -y https://dev.mysql.com/get/mysql57-community-release-el7-11.noarch.rpm
 
+
+
+
+======================================
+
+Amazon RDS Database Configuration
+---
+
+MySql -> Engine Version : Tick Hide Filters Both Options -> Templates (Free Tier)
+
+DB Identifier ( ecommerce )
+
+Username : admin
+
+password : password
+
+Public access : Yes
+
+Additional configuration DatabasePort : 3306
+
+Additional configuration : Initial database name (ecommerce)
+
+Now Database is Created lets just copy the endpoint from connectivity and security.
+DB URL
+
+
+Go to VPC Security Group ->
+security group id -> Edit Inbound Rule
+Delete and Add Rule
+Make it all Traffic and Anywhere Ipv4
+Add Rule Custom TCP and Anywhere Ipv4
+
+
+Go to application.properties
+change in spring.datasource.url like change localhost to DBUrl and database name
+
+
+spring.datasource.username=admin
+spring.datasource.password=password
+
+DB URL : ecommerce.cti2i4qkaojc.ap-south-1.rds.amazonaws.com
 
 
 
