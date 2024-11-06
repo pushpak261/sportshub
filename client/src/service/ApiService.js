@@ -3,7 +3,7 @@ import axios from "axios";
 
 export default class ApiService {
 
-    static BASE_URL = "http://localhost:2424";
+    static BASE_URL = "http://13.234.225.65:2424";
 
 
 
