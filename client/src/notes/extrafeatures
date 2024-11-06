@@ -189,3 +189,99 @@ DB URL : ecommerce.cti2i4qkaojc.ap-south-1.rds.amazonaws.com
 
 
 
+Create and Configure EC2 instance
+----
+create instance linux
+create and download pem key
+copy public ip : 15.207.89.85
+
+In instance go to Security than security group and edit inbound rule as Add another Rule port:8080 or 2424
+select custom TCP port of springboot application and Anywhere IPv4 0.0.0.0/0
+
+click instance then connect it
+connect with ssh client that is terminal or git bash as administrator  locate pem file then run command chmod , then ssh -i command to connect it.
+
+Example:
+ssh -i "sportsbackend.pem" ec2-user@ec2-15-207-89-85.ap-south-1.compute.amazonaws.com
+
+sudo yum update
+install jdk
+https://docs.aws.amazon.com/corretto/latest/corretto-21-ug/what-is-corretto-21.html
+
+
+build jar file with maven and move this jar file to ec2 server
+
+new git bash window go to the target directory by using cd command and then use ssh -i command in Example.
+
+locate pem files folder.. copying local to aws file
+scp -i "/d/pem files/sportsbackend.pem" sportshub-0.0.1-SNAPSHOT.jar ec2-user@ec2-15-207-89-85.ap-south-1.compute.amazonaws.com:/home/ec2-user
+
+Then in new git bash run ls
+
+java -jar application_name
+
+java -jar sportshub-0.0.1-SNAPSHOT.jar
+
+http://15.207.89.85::2424/
+
+In ApiService.js change base url to static BASE_URL = "http://15.207.89.85:2424";
+
+
+
+
+Testing
+===================
+
+First step is create a AWS RDS Database and then connect this database with the springboot application deploy on EC2 instance.
+and then this ec2 instance will give us public url where you can go and use our apis that we have developed in our application.
+
+create jar by configuring application.properties than deploy this jar on ec2 instance. and then we get public url then we acn use that to hit our api.
+
+create RDS Database
+
+in pom.xml go to build and provide
+<finalName>backend-app</finalName>
+
+execute
+mvn clean install
+Inside target folder jar will be created
+Now deploy this jar on ec2 instance
+
+.ppk
+
+copy public Ipv4 dns
+
+To deploy jar file on ec2 instance first connect our ec2 instance from our local machine.
+putty
+install java
+put jar in ec2 instance
+
+use winscp to upload jar
+
+
+putty -> auth -> browse private key -> connect
+type ec2-user
+
+
+sudo dnf install java-21-amazon-corretto
+
+
+winscf ->
+ec2-user, browse private key connect it
+Then move jar file from local storage to instance just drag drop.
+
+
+java -jar sportsbackend.jar
+
+
+
+Note:
+---
+Configure Inbound Rules Properly
+
+
+
+
+
+
+
