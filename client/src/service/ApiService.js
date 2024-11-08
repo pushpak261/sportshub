@@ -1,9 +1,23 @@
-
+//
 import axios from "axios";
 
 export default class ApiService {
 
-    static BASE_URL = "http://localhost:2424";
+    //Here  I had used No Ip dns bcz when I stopped instance so it will automatically configure with instance ip address.
+    static BASE_URL = "http://sportsclub.ddns.net:2424";
+
+
+
+    // static BASE_URL = "http://13.201.81.16:2424";
+    //
+    //ec2-13-201-81-16.ap-south-1.compute.amazonaws.com
+
+    // static BASE_URL = "http://localhost:2424";
+
+
+
+
+
 
     static getHeader() {
         const token = localStorage.getItem("token");
@@ -183,11 +197,6 @@ export default class ApiService {
         return role === 'ADMIN'
     }
 
-
-
-
-
-
-
-
 }
+
+

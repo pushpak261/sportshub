@@ -17,7 +17,6 @@ const PayPalButton = ({ totalAmount }) => {
                 onApprove={async (data, actions) => {
                     const order = await actions.order.capture();
                     alert('Transaction completed by ' + order.payer.name.given_name);
-                    // Optionally, you can clear the cart or redirect after successful payment
                 }}
                 onError={(err) => {
                     console.error('PayPal Checkout onError', err);

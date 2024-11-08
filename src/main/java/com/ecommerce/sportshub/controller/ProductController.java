@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.math.BigDecimal;
+import java.security.Principal;
 
 @RestController
 @RequestMapping("/product")
@@ -76,5 +77,10 @@ public class ProductController {
     public ResponseEntity<Response> searchForProduct(@RequestParam String searchValue){
         return ResponseEntity.ok(productService.searchProduct(searchValue));
     }
+
+
+
+    //modified
+
 
 }
