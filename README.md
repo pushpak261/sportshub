@@ -13,5 +13,7 @@ NoIp DNS
 
 Termux
 
+RDS DataBase (Optional)
+
 All Errors are Solved
 
