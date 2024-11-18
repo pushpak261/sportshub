@@ -22,6 +22,7 @@ public class AwsS3Service {
 
     private final String bucketName = "sportsclub";
 
+
     @Value("${aws.s3.access}")
     private String awsS3AccessKey;
 
