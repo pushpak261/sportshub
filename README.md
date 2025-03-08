@@ -44,10 +44,10 @@ The **Sports Club System** is a **full-stack web application** that allows users
 
 
 ## **📌 Deployment (AWS)**  
-- **Frontend:** Hosted on AWS S3 (Static Website)  
+- **Frontend:** Hosted on AWS S3 Bucket 
 - **Backend:** Deployed on AWS EC2 instance  
-- **Database:** Hosted on AWS RDS (MySQL)  
-- **Images:** Stored securely in AWS S3  
+- **Database:** MySQL  
+- **Images:** Stored securely in AWS S3 Bucket
 
 ---
 
