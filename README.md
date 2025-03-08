@@ -1,8 +1,6 @@
 # 🛍️ Sports Club System
 🚀 **A full-featured sports club eCommerce system built with React.js, Spring Boot, MySQL, and AWS.**
 
-![Sports Club System](https://via.placeholder.com/1200x600.png?text=Sports+Club+System)
-
 ---
 
 ## **📌 Project Overview**
